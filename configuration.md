@@ -571,6 +571,9 @@ Default: ""
 **server-snippet:** adds custom configuration to all the servers in the nginx configuration
 Default: ""
 
+**sendfile:** enable or disable the use of sendfile()
+Default: true
+
 **location-snippet:** adds custom configuration to all the locations in the nginx configuration
 Default: ""
 

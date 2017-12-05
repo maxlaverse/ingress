@@ -391,6 +391,11 @@ type Configuration struct {
 	// By default this is disabled
 	EnableOpentracing bool `json:"enable-opentracing"`
 
+	// Enable or disable SendFile
+	// https://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile
+	// Default is 'true'
+	SendFile bool `json:"sendfile,omitempty"`
+
 	// ZipkinCollectorHost specifies the host to use when uploading traces
 	ZipkinCollectorHost string `json:"zipkin-collector-host"`
 
@@ -428,6 +433,7 @@ func NewDefault() Configuration {
 		EnableUnderscoresInHeaders: false,
 		ErrorLogLevel:              errorLevel,
 		ForwardedForHeader:         "X-Forwarded-For",
+		SendFile:                   true,
 		HTTP2MaxFieldSize:          "4k",
 		HTTP2MaxHeaderSize:         "16k",
 		HSTS:                       true,

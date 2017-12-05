@@ -54,7 +54,9 @@ http {
     vhost_traffic_status_filter_by_set_key {{ $cfg.VtsDefaultFilterKey }};
     {{ end }}
 
+    {{ if $cfg.SendFile }}
     sendfile            on;
+    {{ end }}
 
     aio                 threads;
     aio_write           on;
@@ -832,7 +834,7 @@ stream {
             return 503;
             {{ end }}
         }
-        
+
         {{ end }}
 
         {{ if eq $server.Hostname "_" }}
